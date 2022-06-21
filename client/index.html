@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Aero Test</title>
+</head>
+<body>
+    <div class = "content" id = "app">
+        <form class = "form-inline mb-3" @submit.prevent = "createContact">
+            <div class = "form-group mr-5">
+                <label for ="PeopleCount" class = "mr-3">Количество человек</label>
+                <input type = "text" class = "from-control" id = "PeopleCount" v-model="form.peopleCount">
+            </div>
+            <br>
+            <div class = "form-group mr-5">
+                <label for ="TimeValue" class = "mr-3">Укажите время</label>
+                <input type = "text" class = "from-control" id = "TimeValue" v-model="form.timeTo">
+            </div>
+            <button class = "btn btn-primary" type = "submit">Создать</button>
+        </form>
+        <p>Доступные варианты:</p>
+        <template>
+            <thead>
+                <tr>
+                    <th width = "300px" height = "200px">Название ресторана</th>
+                    <th width = "300px" height = "200px">Ср. время ожидания</th>
+                    <th width = "300px" height = "200px">Ср. чек</th>
+                    <th width = "300px" height = "200px">Количество столиков</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="contact in goodpalaces">
+                    <td align="center">
+                        {{contact.RestName}}
+                    </td>
+                    <td align="center">
+                        {{contact.AveregeTime}} мин
+                    </td>
+                    <td align="center">
+                        {{contact.AveregeCheck}} рублей
+                    </td>
+                    <td align="center">
+                        {{contact.CountTables}}
+                    </td>
+                </tr>
+            </tbody>
+        </template>
+    </div>
+    <script type = "module" src = "frontend.js"></script>
+</body>
+</html>
